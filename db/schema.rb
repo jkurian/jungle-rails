@@ -57,8 +57,12 @@ ActiveRecord::Schema.define(version: 20180227142119) do
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_foreign_key "line_items", "orders"

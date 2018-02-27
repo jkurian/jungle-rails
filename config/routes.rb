@@ -20,8 +20,13 @@ Rails.application.routes.draw do
 
   namespace :user do
     root to: 'dashboard#show'
-    get '/login' => 'login#show'
-    get '/register' => 'register#show'
+    get '/login' => 'sessions#new'
+    
+    get '/register' => 'register#new'
+    post '/register' => 'register#create'
+
+    post '/login' => 'sessions#create'
+    get '/logout' => 'sessions#destroy'
   end
 
 

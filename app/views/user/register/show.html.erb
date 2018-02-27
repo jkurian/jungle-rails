@@ -1,0 +1,12 @@
+<h1>Register</h1>
+
+<%= form_tag '/user/login' do %>
+
+  FirstName: <%= text_field_tag :first_name %>
+  LastName: <%= text_field_tag :last_name %>
+  Email: <%= text_field_tag :email %>
+  Password: <%= password_field_tag :password %>
+  ConfirmPassword: <%= password_field_tag :password %>
+  <%= submit_tag "Submit" %>
+
+<% end %>

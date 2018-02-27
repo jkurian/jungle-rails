@@ -1,14 +1,17 @@
 class Admin::ProductsController < ApplicationController
 
   def index
+    puts "INDEX"
     @products = Product.order(id: :desc).all
   end
 
   def new
+    puts "NEW"
     @product = Product.new
   end
 
   def create
+    puts "CREATE"
     @product = Product.new(product_params)
 
     if @product.save

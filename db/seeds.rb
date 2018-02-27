@@ -135,6 +135,6 @@ cat3.products.create!({
 User.create!(
   firstname: 'a',
   lastname: 'a',
-  email: 'a',
+  email: 'a@gmail.com',
   password_digest: BCrypt::Password.create('a'))
 puts "DONE!"

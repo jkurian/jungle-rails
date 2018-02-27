@@ -1,8 +1,7 @@
 class User::RegisterController < ApplicationController
   def new
-  end  
+  end
   def create
-    puts "PARAMS ==== #{user_params}"
         user = User.new(user_params)
         if user.save
           session[:user_id] = user.id

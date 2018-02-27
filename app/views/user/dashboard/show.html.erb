@@ -4,7 +4,13 @@
     </header>
     <div class="container user-dashboard">
     <div class="well">
-    <%= link_to 'Login', '/user/login', class: 'btn btn-info' %>  <%= link_to 'Register', '/user/register',class: 'btn btn-info' %>
+    <% if current_user %>
+    Signed in | <%= link_to "Logout", '/user/logout' %>
+  <% else %>
+  <%= link_to 'Login', '/user/login', class: 'btn btn-info' %>  <%= link_to 'Register', '/user/register',class: 'btn btn-info' %>
+  <% end %>
+
+
     </div>
     </div>
 </section>

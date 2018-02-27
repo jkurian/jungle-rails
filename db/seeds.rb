@@ -132,10 +132,9 @@ cat3.products.create!({
   price: 2_483.75
 })
 
-User.create!({
+User.create!(
   firstname: 'a',
   lastname: 'a',
   email: 'a',
-  password_digest: 'a'
-})
+  password_digest: BCrypt::Password.create('a'))
 puts "DONE!"

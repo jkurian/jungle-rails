@@ -11,17 +11,17 @@ class User::SessionsController < ApplicationController
           redirect_to '/'
         else
         # If user's login doesn't work, send them back to the login form.
-          redirect_to '/user/login'
+          redirect_to '/user'
         end
       end
     
       def destroy
         session[:user_id] = nil
-        redirect_to '/user/login'
+        redirect_to '/user'
       end
 
     def login_params
-        params.require(:category).permit(
+        params.require(:sessions).permit(
           :email,
           :password
         )

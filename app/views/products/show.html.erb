@@ -22,10 +22,37 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+          <dt> Review Product</dt>
+          <%= form_for([@product, @product.reviews.build]) do |f| %>
+           <dd> <div class="form-group">
+                <%= f.label :description %>
+                <%= f.text_field :description, class: 'form-control' %>
+                <%= f.label :rating %>
+                <%= f.select :rating, @ratings, class: 'form-control' %>
+                <% if current_user %>
+                <%= f.submit 'Submit Review', class: 'btn btn-primary', data: {disable_with: "Submitting..."}%>
+                <% else %>
+                <%= f.submit 'Log in to Review', class: 'btn btn-primary disabled', disabled: true %>
+                <% end %>
+            </div></dd>
+            <% end %>
+          <dt>Reviews</dt>
+          <% @product.reviews.each do |review| %>
+            <dd><div>
+            <% if current_user %>
+              <% if current_user.id == review.user_id %>
+              <p><%= review.rating %> <%= review.description %> <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %></p>
+              <% else %>
+              <p><%= review.rating %> <%= review.description %></p>
+              <% end %>
+            <% else %>
+            <p><%= review.rating %> <%= review.description %></p>
+            <% end %>
+            </div></dd>
+            <% end %>
         </dl>
       </div>
     </div>
-
   </article>
 
 </section>

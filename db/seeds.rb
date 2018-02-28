@@ -137,4 +137,25 @@ User.create!(
   lastname: 'a',
   email: 'a@gmail.com',
   password_digest: BCrypt::Password.create('a'))
+
+Review.create!(
+  user_id: 1,
+  product_id: 1,
+  description: "AMAZING!",
+  rating: 5
+)
+
+Review.create!(
+  user_id: 1,
+  product_id: 1,
+  rating: 2
+)
+
+Review.create!(
+  user_id: 1,
+  product_id: 1,
+  description: "Not bad but could be better",
+  rating: 3
+)
+
 puts "DONE!"

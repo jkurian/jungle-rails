@@ -1,5 +1,4 @@
 class Admin::CategoriesController < Admin::BaseAdminController
-    before_filter :authorize
 
     def index
         @categories = Category.order(id: :desc).all

@@ -3,14 +3,10 @@
         <h1>User &raquo; Dashboard</h1>
     </header>
     <div class="container user-dashboard">
-    <div class="well">
     <% if current_user %>
-    Signed in | <%= link_to "Logout", '/user/logout' %>
+    <h1> Display Profile Info </h1>
   <% else %>
-  <%= link_to 'Login', '/user/login', class: 'btn btn-info' %>  <%= link_to 'Register', '/user/register',class: 'btn btn-info' %>
+    <h1> Please Login to continue </h1>
   <% end %>
-
-
-    </div>
     </div>
 </section>

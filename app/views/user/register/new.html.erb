@@ -2,12 +2,13 @@
 
 
 <%= form_for :user, url: '/user/register' do |f| %>
-
-  FirstName: <%= f.text_field :firstname %>
-  LastName: <%= f.text_field :lastname %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
+  <div class='register-names'>
+  <label>FirstName:</label> <%= f.text_field :firstname %> 
+  <label>LastName: </label> <%= f.text_field :lastname %>
+  <label>Email:    </label> <%= f.text_field :email %>
+  <label>Password: </label> <%= f.password_field :password %>
+  <label>Password Confirmation:</label> <%= f.password_field :password_confirmation %>
+  <div class='register-submit'><%= f.submit "Submit", class: 'btn btn-info register-submit' %> </div>
+  </div>
 
 <% end %>

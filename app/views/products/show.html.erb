@@ -36,23 +36,13 @@
                 <% end %>
             </div></dd>
             <% end %>
-          <dt>Reviews</dt>
-          <% @product.reviews.each do |review| %>
-            <dd><div>
-            <% if current_user %>
-              <% if current_user.id == review.user_id %>
-              <p><%= review.rating %> <%= review.description %> <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %></p>
-              <% else %>
-              <p><%= review.rating %> <%= review.description %></p>
-              <% end %>
-            <% else %>
-            <p><%= review.rating %> <%= review.description %></p>
-            <% end %>
-            </div></dd>
-            <% end %>
-        </dl>
-      </div>
-    </div>
+            </dl>
+            </div>
+            </div>
+            <h3>Reviews</h3>
+            <% @product.reviews.each do |review| %>
+              <%= render 'review', review: review, rating: review.rating, description: review.description, user_id: review.user_id %>
+            <% end %>    
   </article>
 
 </section>

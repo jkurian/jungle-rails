@@ -1,0 +1,17 @@
+<dl class='dl-horizontal'>
+  <% if current_user %>
+    <% if current_user.id == user_id %>
+    <dt> Rating </dt>
+    <dd><%= rating %></dd>
+    <dt> Description </dt>
+    <dd><%= description %> </dd>
+    <dt> Delete </dt>
+    <dd><%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %></dd>
+    <% end %>
+  <% else %>
+  <dt> Rating </dt>
+  <dd><%= rating %> </dd>
+  <dt> Review </dt>
+  <dd><%= description %></dd>
+  <% end %>
+</dl>

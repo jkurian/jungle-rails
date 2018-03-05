@@ -4,6 +4,16 @@ RSpec.describe User, type: :model do
   describe 'Validations' do
       it 'should require both a password and password_confirmation' do
         user = User.new
+        user.password = 'helloWorld'
+        user.firstname = 'hello'
+        user.lastname = 'world'
+        user.password_confirmation = 'helloWorld'
+        
+        user.save
+        expect(user).to be_valid
+      end
+      it 'should require both a password and password_confirmation' do
+        user = User.new
         user.password = 'helloWord'
         user.firstname = 'hello'
         user.lastname = 'world'
@@ -15,7 +25,7 @@ RSpec.describe User, type: :model do
         user.password = 'helloWord'
         user.firstname = 'hello'
         user.lastname = 'world'
-        user.password_confirmation = 'hellowrold'
+        user.password_confirmation = 'helloworld'
         user.save
         expect(user.errors[:password_confirmation]).to include("doesn't match Password")
       end

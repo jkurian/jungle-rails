@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "ProductDetails", type: :feature, js: true do
   before :each do
     @category = Category.create! name: 'Apparel'
-    1.times do |n|
+    10.times do |n|
       @category.products.create!(
         name:  Faker::Hipster.sentence(3),
         description: Faker::Hipster.paragraph(4),
@@ -17,15 +17,11 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
         # ACT
         visit root_path
 
-        # DEBUG / VERIFY
-        save_screenshot
-
         #click on product
-        find('article header a img').click
+        click_link('Details', match: :first)
 
-        puts page.html
         # DEBUG / VERIFY
-        save_screenshot
         expect(page).to have_css '.product-detail'
+        save_screenshot
   end
 end

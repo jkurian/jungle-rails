@@ -8,12 +8,16 @@ RSpec.describe Product, type: :model do
       @category.name = 'Shoes'
       @category.save
     end
+    after(:each) do
+      Product.delete_all
+      Category.delete_all
+    end
       it 'should save to database correctly' do
         @product.category = Category.create(name: 'Shoe')
         @product.name = "Adidas"
         @product.price = 109.99
         @product.quantity = 20
-        @product.save
+        @product.valid?
         
         expect(@product).to be_valid
       end
